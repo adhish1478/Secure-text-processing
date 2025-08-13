@@ -1,4 +1,4 @@
-# CodeMonk Django Project
+# Django Assessment
 
 ## Overview
 
@@ -168,7 +168,7 @@ The system uses Redis as both message broker and result backend:
 **Step 1: Clone and Navigate**
 ```bash
 git clone <repository-url>
-cd "Assessment- Codemonk/backend"
+cd "Assessment- backend"
 ```
 
 **Step 2: Environment Configuration**
@@ -180,9 +180,9 @@ DEBUG=1
 ALLOWED_HOSTS=localhost,127.0.0.1
 
 # Database Configuration
-POSTGRES_DB=codemonk_db
-POSTGRES_USER=codemonk_user
-POSTGRES_PASSWORD=codemonk_pass
+POSTGRES_DB=project_db
+POSTGRES_USER=project_user
+POSTGRES_PASSWORD=project_pass
 DB_HOST=db
 DB_PORT=5432
 
@@ -232,8 +232,8 @@ pip install -r requirements.txt
 ```bash
 # PostgreSQL setup (Ubuntu/Debian)
 sudo apt-get install postgresql postgresql-contrib
-sudo -u postgres createdb codemonk_db
-sudo -u postgres createuser codemonk_user
+sudo -u postgres createdb project_db
+sudo -u postgres createuser project_user
 
 # Redis setup
 sudo apt-get install redis-server

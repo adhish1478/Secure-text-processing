@@ -185,7 +185,7 @@ CELERY_TIMEZONE = 'Asia/Kolkata'  # Adjust to your timezone
 
 # DRF Spectacular Settings
 SPECTACULAR_SETTINGS = {
-    'TITLE': 'codeMonk API Documentation',
+    'TITLE': 'Assesment API Documentation',
     'DESCRIPTION': 'Detailed description of  API',
     'VERSION': '1.0.0',
     'SERVE_INCLUDE_SCHEMA': False,
