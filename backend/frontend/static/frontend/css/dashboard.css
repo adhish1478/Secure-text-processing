@@ -1,0 +1,363 @@
+/* Base styles */
+body {
+    margin: 0;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+/* Prismatic Aurora Background */
+.prismatic-bg {
+    background: 
+        radial-gradient(ellipse 120% 80% at 70% 20%, rgba(255, 20, 147, 0.15), transparent 50%),
+        radial-gradient(ellipse 100% 60% at 30% 10%, rgba(0, 255, 255, 0.12), transparent 60%),
+        radial-gradient(ellipse 90% 70% at 50% 0%, rgba(138, 43, 226, 0.18), transparent 65%),
+        radial-gradient(ellipse 110% 50% at 80% 30%, rgba(255, 215, 0, 0.08), transparent 40%),
+        #000000;
+}
+
+/* Dashboard Navigation */
+.dashboard-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 40px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    z-index: 100;
+}
+
+.nav-brand {
+    font-size: 24px;
+    font-weight: 700;
+    color: #000;
+}
+
+.nav-user {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.greeting {
+    font-size: 15px;
+    color: #333;
+}
+
+.profile-img {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    object-fit: cover;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+.profile-img:hover {
+    transform: scale(1.1);
+}
+
+.dropdown {
+    position: relative;
+}
+
+.dropdown-menu {
+    position: absolute;
+    right: 0;
+    top: 100%;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    padding: 10px 0;
+    min-width: 160px;
+    display: none;
+    z-index: 101;
+}
+
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+.dropdown-item {
+    display: block;
+    padding: 8px 20px;
+    color: #333;
+    text-decoration: none;
+    font-size: 14px;
+    transition: all 0.2s;
+}
+
+.dropdown-item:hover {
+    background: #f5f5f5;
+    color: #000;
+}
+
+/* Main Content */
+.dashboard-main {
+    padding: 100px 40px 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.search-container {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.search-bar {
+    flex: 1;
+    padding: 12px 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 16px;
+    background: white;
+    transition: all 0.3s;
+}
+
+.search-bar:focus {
+    outline: none;
+    border-color: #666;
+    box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.1);
+}
+
+.add-button {
+    padding: 0 20px;
+    background: #000;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.add-button:hover {
+    background: #333;
+}
+
+/* Paragraph Cards */
+.paragraphs-grid, .results-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+    color: white;
+}
+
+.paragraph-card {
+    background: white;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+}
+
+.paragraph-card:hover {
+    transform: translateY(-3px);
+}
+
+.paragraph-content {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.paragraph-meta {
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+    color: #666;
+    border-top: 1px solid #eee;
+    padding-top: 10px;
+}
+.paragraph-date {
+    font-style: italic;
+    color: #999;
+    font-size: 14px;
+}
+
+/* Search Results */
+.search-results {
+    margin-top: 30px;
+}
+
+.results-title {
+    font-size: 20px;
+    margin-bottom: 20px;
+    color: white;
+}
+
+.hidden {
+    display: none;
+}
+
+/* Modal styles */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: none; /* Use display:none instead of visibility:hidden */
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal.active {
+    display: flex;
+}
+
+.modal-content {
+    background: white;
+    border-radius: 12px;
+    width: 100%;
+    max-width: 600px;
+    max-height: 80vh;
+    overflow: auto;
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    border-bottom: 1px solid #eee;
+}
+
+.modal-header h2 {
+    margin: 0;
+    font-size: 22px;
+}
+
+.close-button {
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: #666;
+}
+
+.modal-body {
+    padding: 20px;
+}
+
+.paragraph-textarea {
+    width: 100%;
+    min-height: 200px;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 16px;
+    resize: vertical;
+}
+
+.paragraph-textarea:focus {
+    outline: none;
+    border-color: #666;
+}
+
+.modal-footer {
+    display: flex;
+    justify-content: flex-end;
+    gap: 15px;
+    padding: 15px 20px;
+    border-top: 1px solid #eee;
+}
+
+.modal-button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 6px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.modal-button:not(.cancel) {
+    background: #000;
+    color: white;
+}
+
+.modal-button:not(.cancel):hover {
+    background: #333;
+}
+
+.modal-button.cancel {
+    background: #f0f0f0;
+    color: #333;
+}
+
+.modal-button.cancel:hover {
+    background: #e0e0e0;
+}
+
+/* Utility classes */
+.min-h-screen {
+    min-height: 100vh;
+}
+
+.w-full {
+    width: 100%;
+}
+
+.bg-black {
+    background-color: #000;
+}
+
+.relative {
+    position: relative;
+}
+
+.absolute {
+    position: absolute;
+}
+
+.inset-0 {
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+
+.z-0 {
+    z-index: 0;
+}
+
+.z-10 {
+    z-index: 10;
+}
+
+/* Highlighted text */
+/* Add to dashboard.css */
+.highlight {
+    background-color: #ffeb3b;
+    color: #000;
+    padding: 0 2px;
+    border-radius: 3px;
+    font-weight: 500;
+}
+
+.match-badge {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: #4CAF50;
+    color: white;
+    padding: 2px 8px;
+    border-radius: 10px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.paragraph-card {
+    position: relative; /* Needed for absolute positioning of badge */
+    /* rest of your existing paragraph-card styles */
+}
