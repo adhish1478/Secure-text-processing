@@ -1,0 +1,67 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <link href="{% static 'frontend/css/auth.css' %}" rel="stylesheet">
+</head>
+<body>
+   <div class="min-h-screen w-full relative bg-black">
+    <!-- Prismatic Aurora Background -->
+    <div class="absolute inset-0 z-0" style="background: radial-gradient(ellipse 120% 80% at 70% 20%, rgba(255, 20, 147, 0.15), transparent 50%), radial-gradient(ellipse 100% 60% at 30% 10%, rgba(0, 255, 255, 0.12), transparent 60%), radial-gradient(ellipse 90% 70% at 50% 0%, rgba(138, 43, 226, 0.18), transparent 65%), radial-gradient(ellipse 110% 50% at 80% 30%, rgba(255, 215, 0, 0.08), transparent 40%), #000000"></div>
+    
+    <div class="relative z-10">
+
+        <!-- Centered Register Card -->
+        <div class="login-container">
+            <div class="auth-card">
+                <h1 class="auth-title">Register</h1>
+                
+                <form id="registerForm" class="auth-form">
+                    <div class="form-group">
+                        <label for="fullName">Full Name</label>
+                        <input type="text" id="fullName" name="full_name" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="dob">Date of Birth (YYYY-MM-DD)</label>
+                        <input type="date" id="dob" name="dob" required 
+                               pattern="\d{4}-\d{2}-\d{2}" 
+                               title="Please enter date in YYYY-MM-DD format">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="regPassword">Password</label>
+                        <input type="password" id="regPassword" name="password" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="confirmPassword">Confirm Password</label>
+                        <input type="password" id="confirmPassword" name="confirm_password" required>
+                    </div>
+                    
+                    <div id="registerError" class="error-message"></div>
+                    
+                    <button type="submit" class="auth-button" id="registerButton">
+                        <span id="registerText">Register</span>
+                        <span id="registerSpinner" class="spinner hidden"></span>
+                    </button>
+                </form>
+                
+                <div class="auth-footer">
+                    Already have an account? <a href="/login" class="auth-link">Login</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="{% static 'frontend/js/auth.js' %}"></script>
+</body>
+</html>

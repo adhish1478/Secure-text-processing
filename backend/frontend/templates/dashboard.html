@@ -1,0 +1,77 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link href="{% static 'frontend/css/dashboard.css' %}" rel="stylesheet">
+</head>
+<body>
+    <div class="min-h-screen w-full relative bg-black">
+        <!-- Prismatic Aurora Background -->
+        <div class="absolute inset-0 z-0 prismatic-bg"></div>
+        
+        <!-- Main Content -->
+        <div class="relative z-10">
+            <!-- Navbar -->
+            <nav class="dashboard-nav">
+                <div class="nav-brand">Freq-Finder</div>
+                <div class="nav-user">
+                    <span class="greeting">Hello, <span id="userFullName"></span></span>
+                    <div class="dropdown">
+                        <button class="dropdown-toggle">
+                            <img src="{% static 'frontend/images/profile-placeholder.png' %}" class="profile-img">
+                        </button>
+                        <div class="dropdown-menu">
+                            <a href="#" class="dropdown-item">Profile</a>
+                            <a href="#" id="logoutButton" class="dropdown-item">Logout</a>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+
+            <!-- Content Area -->
+            <main class="dashboard-main">
+                <!-- Search Bar -->
+                <div class="search-container">
+                    <input type="text" id="searchInput" placeholder="Search your word frequencies here" class="search-bar">
+                    <button id="addParagraphButton" class="add-button">+ Add Paragraphs</button>
+                </div>
+                
+                <!-- Paragraphs Container -->
+                <div id="paragraphsContainer" class="paragraphs-grid"></div>
+                
+                <!-- Search Results -->
+                <div id="searchResultsContainer" class="search-results hidden">
+                    <h2 class="results-title">Top paragraphs for "<span id="searchTerm"></span>"</h2>
+                    <div id="searchResults" class="results-grid"></div>
+                </div>
+            </main>
+        </div>
+        
+        <!-- Add Paragraph Modal -->
+        <div id="addParagraphModal" class="modal hidden">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2>Add New Paragraph</h2>
+                    <button id="closeModal" class="close-button">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <p><i>Press enter twice to upload multiple paragraphs at once</i></p>
+                    <textarea id="paragraphText" class="paragraph-textarea" placeholder="Type your paragraph here..."></textarea>
+                    <div id="paragraphError" class="error-message"></div>
+                </div>
+                <div class="modal-footer">
+                    <button id="submitParagraph" class="modal-button">Submit</button>
+                    <button id="cancelParagraph" class="modal-button cancel">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="{% static 'frontend/js/authService.js' %}" type="module"></script>
+    <script src="{% static 'frontend/js/dashboard.js' %}" type="module"></script>
+</body>
+</html>
