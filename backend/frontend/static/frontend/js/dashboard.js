@@ -1,4 +1,4 @@
-import { authService } from './authservice.js';
+import { authService } from './authService.js';
 
 
 document.addEventListener('DOMContentLoaded', function() {
